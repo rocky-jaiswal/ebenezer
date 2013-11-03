@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+
+  skip_after_filter :verify_authorized
   
   def create
     resource = User.find_for_database_authentication(email: params[:user][:email])

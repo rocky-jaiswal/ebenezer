@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
+  include Pundit
 
   before_filter :authenticate_user_from_token!
-  before_filter :authenticate_user!, :except => [:login]
+  before_filter :authenticate_user!
+
+  after_filter :verify_authorized, :except => [:greet]
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def resource_name
     :user
@@ -30,6 +34,10 @@ class ApplicationController < ActionController::API
       # sign in token, you can simply remove store: false.
       sign_in user, store: false
     end
+  end
+
+  def user_not_authorized
+    render :nothing => true, :status => :unauthorized
   end
 
 end

@@ -7,6 +7,7 @@ gem 'rails-api'
 
 gem 'sqlite3'
 gem 'devise'
+gem 'pundit'
 
 group :development do
   gem 'thin'

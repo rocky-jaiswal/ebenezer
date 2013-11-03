@@ -16,4 +16,4 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-Ebenezer::Application.config.secret_token = 'asew124d29547b9258d431ea02fbf3dc9f5ee437ad4630203f3559c901ab572d208f24c0b0a4087cc1e5b5da91f4aa4cc6f40334ecd6ad80bed13e54f10ba854489ec12'
+Ebenezer::Application.config.secret_key_base = 'asew124d29547b9258d431ea02fbf3dc9f5ee437ad4630203f3559c901ab572d208f24c0b0a4087cc1e5b5da91f4aa4cc6f40334ecd6ad80bed13e54f10ba854489ec12'

@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 
 gem 'rails-api'
 
 gem 'sqlite3'
+gem 'devise'
 
 group :development do
   gem 'thin'

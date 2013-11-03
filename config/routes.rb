@@ -1,7 +1,15 @@
 Ebenezer::Application.routes.draw do
+  
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    post   '/api/v1/login'   => 'sessions#create'
+    delete '/api/v1/signout' => 'sessions#destroy', :as => :logout
+  end
+  
   namespace :api, defaults: {format: "json"} do
     namespace :v1 do
-      get "/greet" => "pages#greet", :as => 'greet'
+      get "/greet" => "messages#greet", :as => 'greet'
     end
   end
+
 end

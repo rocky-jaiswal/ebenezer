@@ -11,6 +11,9 @@ class WebService
   getAuthHeaders: () ->
     {email: @storageService.get("email"), token: @storageService.get("token")}
 
+  logout: () ->
+    @$http.delete(@baseUrl + "logout", {headers: @getAuthHeaders()})
+
   getGreeting: () ->
     @$http.get(@baseUrl + "greet", {headers: @getAuthHeaders()})
 

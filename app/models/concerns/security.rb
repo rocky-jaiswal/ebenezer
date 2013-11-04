@@ -6,6 +6,11 @@ module Security
     self.save!
     self.authentication_token
   end
+
+  def logout
+    self.authentication_token = ""
+    self.save!
+  end
  
   private
   

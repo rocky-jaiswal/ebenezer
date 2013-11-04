@@ -10,14 +10,15 @@ angular.module('ebenezerApp', [
       .when('/home', {templateUrl: 'views/main.html', controller: 'MainCtrl'})
       .otherwise(redirectTo: '/')
   .config ($httpProvider) ->
-    interceptor = ["$rootScope", "$location", "$q", ($scope, $location, $q) ->
+    interceptor = ["$rootScope", "$location", "$q", "storageService", ($scope, $location, $q, storageService) ->
       success = (resp) ->
         resp
 
       err = (resp) ->
         if resp.status is 401
           d = $q.defer()
-          $location.url "login"
+          storageService.logout()
+          $location.url "/"
           return d.promise
         $q.reject resp
 

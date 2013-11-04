@@ -32,6 +32,7 @@ class ApplicationController < ActionController::API
   end
 
   def user_not_authorized
+    current_user.logout
     render :nothing => true, :status => :unauthorized
   end
 

@@ -11,6 +11,7 @@ angular.module('ebenezerApp', [
       .otherwise(redirectTo: '/')
   .config ($httpProvider) ->
     interceptor = ["$rootScope", "$location", "$q", "storageService", ($scope, $location, $q, storageService) ->
+      
       success = (resp) ->
         resp
 

@@ -13,8 +13,8 @@ class LoginCtrl
     promise.then @success, @error
 
   success: (response) =>
-    @storageService.store "email", response.data.email
     @storageService.store "token", response.data.token
+    @storageService.store "email", response.data.email
     @$location.url "home"
    
   error: (response) =>

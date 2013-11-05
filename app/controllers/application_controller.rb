@@ -23,12 +23,13 @@ class ApplicationController < ActionController::API
   private
     
   def authenticate_user_from_token!
-    user_token    = request.headers["token"]
-    if !user_token.blank?
-      user          = user_token && User.find_by_authentication_token(user_token)
-      authenticated = user && user.email == request.headers["email"]
+    user_token = request.headers["token"]
+    user_email = request.headers["email"]
+    user       = user_email && User.find_by_email(user_email)
+
+    if user && !user_token.blank? && Devise.secure_compare(user.authentication_token, user_token)
+      sign_in user, store: false
     end
-    sign_in user, store: false if authenticated
   end
 
   def user_not_authorized

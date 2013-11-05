@@ -8,6 +8,7 @@ gem 'rails-api'
 gem 'sqlite3'
 gem 'devise'
 gem 'pundit'
+gem 'aes', '~> 0.5.0'
 
 group :development do
   gem 'thin'

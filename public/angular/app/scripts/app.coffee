@@ -20,6 +20,7 @@ angular.module('ebenezerApp', [
           d = $q.defer()
           storageService.logout()
           $location.url "/"
+          $scope.$broadcast("notify", {message: "Sorry, an authentication error has occurred."})
           return d.promise
         $q.reject resp
 

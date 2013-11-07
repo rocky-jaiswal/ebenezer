@@ -16,6 +16,7 @@ class MainCtrl
     anotherPromise.then @setPosts, @error
 
   success: (response) =>
+    @$scope.$broadcast("notify", {message: "Welcome back :)"})
     @$scope.message = response.data.message
 
   setPosts: (response) =>

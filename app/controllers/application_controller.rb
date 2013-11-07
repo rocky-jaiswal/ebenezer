@@ -25,9 +25,7 @@ class ApplicationController < ActionController::API
   def authenticate_user_from_token!
     auth_service = AuthenticationService.new
     user = auth_service.authenticated?(request.headers["email"], request.headers["token"])
-    if user
-      sign_in user, store: false
-    end
+    sign_in user, store: false if user
   end
 
   def user_not_authorized

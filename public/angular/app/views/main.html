@@ -1,10 +1,15 @@
-<div class="row">
-  <div class="row-fluid">
-    <div class="span12">
-      <div ng-include src="'views/partials/topbar.html'" ng-controller="NavigationCtrl"></div>
-    </div>
+<div class="row" style="margin-bottom:50px;">
+  <div class="span12">
+    <div ng-include src="'views/partials/topbar.html'" ng-controller="NavigationCtrl"></div>
   </div>
-  <div class="span12 well">
+</div>
+<div class="row">
+  <div class="span12">
+    <div ng-include src="'views/partials/messages.html'" ng-controller="MessagesCtrl"></div>
+  </div>
+</div>
+<div class="row">  
+  <div class="span12">
     <h3>Message from server: {{message}}</h3>
   </div>
 </div>

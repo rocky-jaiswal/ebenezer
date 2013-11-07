@@ -23,12 +23,9 @@ class ApplicationController < ActionController::API
   private
     
   def authenticate_user_from_token!
-    user_token = request.headers["token"]
-    encrypted_email = request.headers["email"]
-
-    auth_service = Authentication.new
-    user = auth_service.get_user_from_encrypted_email(encrypted_email)
-    if auth_service.valid_token?(user, user_token)
+    auth_service = AuthenticationService.new
+    user = auth_service.authenticated?(request.headers["email"], request.headers["token"])
+    if user
       sign_in user, store: false
     end
   end

@@ -1,4 +1,13 @@
-class Authentication
+class AuthenticationService
+
+  def authenticated?(encrypted_email, user_token)
+    user = get_user_from_encrypted_email(encrypted_email)
+    if valid_token?(user, user_token)
+      return user
+    else
+      return nil
+    end
+  end
 
   def get_user_from_encrypted_email(encrypted_email)
     if encrypted_email && !encrypted_email.blank?

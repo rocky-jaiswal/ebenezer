@@ -24,14 +24,11 @@ class ApplicationController < ActionController::API
     
   def authenticate_user_from_token!
     user_token = request.headers["token"]
-    user_email = request.headers["email"]
-    
-    if user_email && !user_email.blank?
-      user_email = AES.decrypt(user_email, Ebenezer::Application.config.secret_key_base)
-      user       = User.find_by_email(user_email)
-    end
+    encrypted_email = request.headers["email"]
 
-    if user && !user_token.blank? && Devise.secure_compare(user.authentication_token, user_token)
+    auth_service = Authentication.new
+    user = auth_service.get_user_from_encrypted_email(encrypted_email)
+    if auth_service.valid_token?(user, user_token)
       sign_in user, store: false
     end
   end

@@ -11,7 +11,7 @@ class SessionsController < Devise::SessionsController
   end
  
   def failure
-    render :json => {:success => false, :errors => ["login failed."]}
+    render :nothing => true, :status => :unauthorized
   end
 
   def destroy
@@ -19,6 +19,7 @@ class SessionsController < Devise::SessionsController
     render :json => {:success => true, :message => "logged out"}
   end
 
+  private
   def handle_success(resource)
     token = resource.ensure_authentication_token
     email = AES.encrypt(resource.email, Ebenezer::Application.config.secret_key_base)

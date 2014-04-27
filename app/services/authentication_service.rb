@@ -2,19 +2,14 @@ class AuthenticationService
 
   def authenticated?(encrypted_email, user_token)
     user = get_user_from_encrypted_email(encrypted_email)
-    if valid_token?(user, user_token)
-      return user
-    else
-      return nil
-    end
+    user if user && valid_token?(user, user_token)
   end
 
   def get_user_from_encrypted_email(encrypted_email)
-    if encrypted_email && !encrypted_email.blank?
+    unless encrypted_email.blank?
       user_email = AES.decrypt(encrypted_email, Ebenezer::Application.config.secret_key_base)
-      user       = User.find_by_email(user_email)
+      User.find_by_email(user_email)
     end
-    user
   end
 
   def valid_token?(user, user_token)

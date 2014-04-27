@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user = User.create(email: "rocky@example.com", password: "123456", password_confirmation: "123456")
+user = User.find_or_create_by(email: "rocky@example.com"){|u| u.password = "12345678"; u.password_confirmation = "12345678"}

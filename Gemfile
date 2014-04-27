@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.1.0'
 
 gem 'rails-api'
 
@@ -16,7 +16,13 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner'
 end
 
 # To use ActiveModel has_secure_password

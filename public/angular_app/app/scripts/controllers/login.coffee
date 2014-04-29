@@ -3,7 +3,6 @@
 class LoginCtrl
 
   constructor: (@$scope, @$location, @webService, @storageService) ->
-    console.log "hi"
     @setup()
 
   setup: ->

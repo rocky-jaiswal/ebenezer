@@ -6,7 +6,7 @@ class AuthenticationService
   end
 
   def get_user_from_encrypted_email(encrypted_email)
-    unless encrypted_email.blank?
+    if !encrypted_email.blank? && encrypted_email != "null" 
       user_email = AES.decrypt(encrypted_email, Ebenezer::Application.config.secret_key_base)
       User.find_by_email(user_email)
     end

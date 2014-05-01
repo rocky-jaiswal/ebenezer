@@ -1,4 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+$font-family-sans-serif: 'Droid Sans', sans-serif;
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
@@ -8,6 +12,13 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  background-color: #6BB9F0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.well {
+  background-color: #34495E;
+  color: whitesmoke;
+  border: none;
 }

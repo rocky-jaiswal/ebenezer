@@ -2,7 +2,8 @@
 
 ebenezerApp = angular.module('ebenezerApp', [
   'ngResource', 'ngSanitize',
-  'ngRoute', 'ebenezerApp.storageService', 'ebenezerApp.webService'
+  'ngAnimate', 'fx.animations','ngRoute', 
+  'ebenezerApp.storageService', 'ebenezerApp.webService'
 ])
 
 ebenezerApp.config(

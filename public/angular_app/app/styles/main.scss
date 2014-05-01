@@ -3,12 +3,15 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
 $font-family-sans-serif: 'Droid Sans', sans-serif;
+$border-radius-base: 0px;
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+
+@import "buttons";
 
 /* Space out content a bit */
 body {

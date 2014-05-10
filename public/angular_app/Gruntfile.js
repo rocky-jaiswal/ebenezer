@@ -140,7 +140,15 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+      rails: {
+        files: [{
+          src:['<%= yeoman.dist %>/../../images', '<%= yeoman.dist %>/../../scripts', '<%= yeoman.dist %>/../../styles', '<%= yeoman.dist %>/../../views/', '<%= yeoman.dist %>/../../index.html', '<%= yeoman.dist %>/../../favicon.ico', '<%= yeoman.dist %>/../../404.html', '<%= yeoman.dist %>/../../robots.txt']
+        }],
+        options: {
+          force: true
+        }
+      }
     },
 
     // Add vendor prefixed styles
@@ -362,7 +370,8 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      }
+      },
+      rails: {expand: true, cwd: '<%= yeoman.dist %>', src: ['**'], dest: '<%= yeoman.dist %>/../..'}
     },
 
     // Run some tasks in parallel to speed up the build process
@@ -462,7 +471,9 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'clean:rails',
+    'copy:rails'
   ]);
 
   grunt.registerTask('default', [

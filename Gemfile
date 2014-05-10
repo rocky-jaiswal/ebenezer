@@ -8,9 +8,9 @@ gem 'sqlite3'
 gem 'devise'
 gem 'pundit'
 gem 'aes', '~> 0.5.0'
+gem 'puma'
 
 group :development do
-  gem 'thin'
   gem 'rack-cors', :require => 'rack/cors'
 end
 

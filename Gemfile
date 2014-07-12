@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.4'
 
 gem 'rails-api'
 gem 'sqlite3'
@@ -24,7 +24,7 @@ group :test do
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner'
 end
 
-ruby "2.1.1" #for rvm / heroku
+ruby "2.1.2" #for rvm / heroku
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

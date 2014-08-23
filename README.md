@@ -8,4 +8,4 @@
 
 
 ###Staging env with docker
-- If you are docker friendly, just run ./staging.sh to get a dockerized staging environment.
+- If you are docker friendly, just run __./staging.sh__ to get a dockerized staging environment.
